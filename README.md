@@ -1,4 +1,4 @@
-<img src="/README-static-assets/cumulostrata_logo.png" width="450">
+<img src="https://github.com/cumulostrata/cumulostrata.github.io/blob/master/README-static-assets/cumulostrata-logo.png" width="450">
 
 # Cumulostrata - GCP to Splunk logging automation Terraform generator
 
