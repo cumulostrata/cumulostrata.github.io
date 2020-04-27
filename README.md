@@ -6,7 +6,7 @@
 
 This project is designed to simplify the configuration of pushing data to Splunk using the GCP Dataflow [Pub/Sub to Splunk](https://cloud.google.com/dataflow/docs/guides/templates/provided-streaming#pubsub-to-splunk) template. The fully local configuration website (no external network requests) allows you to provide GCP and Splunk details, then select common data sources and provided custom Stackdriver/GCP Logging query filters to stream to Splunk. A [Terraform](https://www.terraform.io/) template is generated based on your selections, which can be run within GCP's Cloud Shell CLI, or on a local CLI tool to deploy logging automation.
 
-Try out the configuration site here: https://cumulostrata.github.io, or download this repository and open the `index.html` file.
+**Try out the configuration site here: https://cumulostrata.github.io**, or download this repository and open the `index.html` file.
 
 Wondering why the name Cumulostrata? It's a mashup of *[Cumulonimbus clouds](https://en.wikipedia.org/wiki/Cumulonimbus_cloud)* and Terraform [*stratum*](https://en.wikipedia.org/wiki/Stratum).
 
