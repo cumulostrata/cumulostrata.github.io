@@ -29,6 +29,13 @@ log_name="projects/[PROJECT_ID]/logs/compute.googleapis.com%2Fvpc_flows"`
 	- See the [Query filter library](https://cloud.google.com/logging/docs/view/query-library#networking-filters) for ideas of possible query filters
 	- Note that each query filter will be `OR`ed together. i.e. `[Custom filter 1] OR [Custom fitler 2]`
 
+5. **Using Organization level filters (Aggregated exports):**
+    - See the the GCP docs on [aggregated](https://cloud.google.com/logging/docs/export/aggregated_sinks) exports to understand the needed roles and permissions. These roles and permissions will need to be applied to the account running the generated Terraform template.
+
+6. **Enable G Suite to send audit logs to GCP**
+    - In order to send G Suite audit logsto GCP (such as Logins and Admin activities). You must enable log delivery to GCP within G Suite. See (here)[https://cloud.google.com/blog/products/identity-security/cloud-audit-logs-integrated-audit-transparency-for-gcp-and-g-suite] for documentation.
+    - **Note:** Accessgin G Suite logs in GCP require an organiation level logging export and the associated permissions (See prerequisite note 5 above)
+
 ## Deploying the generated Terraform template
 1. The Cloud Shell in the GCP console is the simplest way to deploy the generated Terraform template. The Cloud Shell has Terraform already installed, so the only steps required are to upload the file using the upload file utility (See the 3 dot `More`) menu and select `Upload File`
 	- The same steps should work outside of Cloud Shell, assuming Terraform in installed and GCP credentials have been set using an environment variable. See more documentation [here](https://www.terraform.io/docs/providers/google/guides/getting_started.html).
