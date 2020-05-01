@@ -30,11 +30,15 @@ log_name="projects/[PROJECT_ID]/logs/compute.googleapis.com%2Fvpc_flows"`
 	- Note that each query filter will be `OR`ed together. i.e. `[Custom filter 1] OR [Custom fitler 2]`
 
 5. **Using Organization level filters (Aggregated exports):**
-    - See the the GCP docs on [aggregated](https://cloud.google.com/logging/docs/export/aggregated_sinks) exports to understand the needed roles and permissions. These roles and permissions will need to be applied to the account running the generated Terraform template.
+    - See the the GCP docs on [aggregated exports](https://cloud.google.com/logging/docs/export/aggregated_sinks) to understand the needed roles and permissions. These roles and permissions will need to be applied to the account running the generated Terraform template.
 
 6. **Enable G Suite to send audit logs to GCP**
     - In order to send G Suite audit logsto GCP (such as Logins and Admin activities). You must enable log delivery to GCP within G Suite. See (here)[https://cloud.google.com/blog/products/identity-security/cloud-audit-logs-integrated-audit-transparency-for-gcp-and-g-suite] for documentation.
-    - **Note:** Accessgin G Suite logs in GCP require an organiation level logging export and the associated permissions (See prerequisite note 5 above)
+    - **Note:** Accessing G Suite logs in GCP require an organiation level logging export and the associated permissions (See prerequisite note 5 above)
+    - The query filter automatically used to capture G Suite Admin activity logs is below (if selected in the configuration site):
+		- `log_name="organizations/[ORGANIZATION_ID]/logs/cloudaudit.googleapis.com%2Factivity" protoPayload.serviceName="admin.googleapis.com" resource.type="audited_resource"`
+    - The query filter automatically used to capture G Suite login logs is below (if selected in the configuration site):
+		- `log_name="organizations/[ORGANIZATION_ID]/logs/cloudaudit.googleapis.com%2Fdata_access" protoPayload.serviceName="login.googleapis.com" resource.type="audited_resource"`
 
 ## Deploying the generated Terraform template
 1. The Cloud Shell in the GCP console is the simplest way to deploy the generated Terraform template. The Cloud Shell has Terraform already installed, so the only steps required are to upload the file using the upload file utility (See the 3 dot `More`) menu and select `Upload File`
